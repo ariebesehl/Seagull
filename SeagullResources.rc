@@ -1,0 +1,5 @@
+#include <ZTK.h>
+
+#ifdef ZTM_ARCH__WIN
+ZTK_DEFAULT_WINDOW_ICON_INTEGRATED_ID ICON Seagull.ico
+#endif // ZTM_ARCH__WIN
