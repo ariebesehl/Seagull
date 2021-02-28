@@ -49,8 +49,7 @@ typedef struct {
 	struct {
 		const ZT_CHAR* title;
 	} window;
-} TEXT_HIVE;
-
+} SGL_TEXT;
 typedef struct {
 	struct {
 		ZUI_BOX* box;
@@ -95,20 +94,19 @@ typedef struct {
 			ZUI_BUTTON* reset;
 		} camera;
 	} hud;
-} GUI_HIVE;
-
+} SGL_GUI;
 typedef struct {
     struct {
         ZT_EVENT* window;
         ZT_EVENT* gui;
     } event;
-    ZT_PRINTER* printer;
+    ZT_TIMER* timer;
     struct {
         ZT_FONT* window;
         ZT_FONT* title;
         ZT_FONT* desc;
     } font;
-	GUI_HIVE gui;
+	SGL_GUI gui;
     struct {
         ZT_INDEX fps;
     } counter;
@@ -117,12 +115,7 @@ typedef struct {
     } stat;
     struct {
         ZT_TIME fps;
-        ZT_TIME draw;
     } timestamp;
-    struct {
-        ZT_TIME fps;
-        ZT_TIME draw;
-    } timeout;
 	struct {
 		ZT_FLAG lang;
 		ZT_FLAG menu;
@@ -142,7 +135,9 @@ typedef struct {
     struct {
         ZT_RECT window;
     } rect;
-    TEXT_HIVE text;
-} APP_HIVE;
+    SGL_TEXT text;
+} SGL_HOST;
+
+SGL_HOST gMain;
 
 #endif // SEAGULL_HIVE_H_INCLUDED

@@ -36,14 +36,14 @@ typedef struct {
 		ZT_U* buffer1;
 	} data;
 	ZT_FLAG flag;
-} SEAGULL;
+} SGL_CORE;
 
-SEAGULL* gSeagull;
+SGL_CORE gCore;
 
 #ifdef __cplusplus
 extern "C" {
 #endif // __cplusplus
-SEAGULL* SGC_New(ZT_INDEX iWidth, ZT_INDEX iHeight);
+SGL_CORE* SGC_New(ZT_INDEX iWidth, ZT_INDEX iHeight);
 void SGC_Iterate(void);
 void SGC_Count(void);
 void SGC_SetAlive(ZT_INDEX iX, ZT_INDEX iY);

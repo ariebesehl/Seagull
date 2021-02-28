@@ -14,16 +14,12 @@
 #define SGGAME_FLAG_PAUSE_SYSTEM 0x4
 #define SGGAME_FLAG_PAUSE (SGGAME_FLAG_PAUSE_USER | SGGAME_FLAG_PAUSE_SYSTEM)
 #define SGGAME_FLAG_DRAW_GRID 0x8
-
 #define SGGAME_GFX_FLAG_NONE 0x0
 #define SGGAME_GFX_FLAG_CAMERA_MOVE 0x1
-
 #define SGGAME_GFX_MAX_ZOOM 5
 #define SGGAME_MAX_SPEED 8
-
 #define SGGAME_OPTION_NONE 0x0
 #define SGGAME_OPTION_TIMED_ITERATION 0x1
-
 #define SGGAME_DEFAULT_DENSITY 12
 #define SGGAME_DEFAULT_SPEED 0
 #define SGGAME_DEFAULT_FLAG (SGGAME_FLAG_NONE | SGGAME_FLAG_PAUSE_SYSTEM)
@@ -31,7 +27,6 @@
 #define SGGAME_DEFAULT_OPTIONS (SGGAME_OPTION_NONE)
 
 typedef struct {
-    SEAGULL* game;
     ZT_U* cache;
     ZT_U32 seed;
     ZT_FLAG flag;
@@ -51,7 +46,6 @@ typedef struct {
     } timestamp;
     struct {
         ZT_TIME timer;
-        ZT_TIME fps;
     } timeout;
     struct {
         ZT_FLAG flag;
@@ -61,9 +55,9 @@ typedef struct {
         ZT_SURFACE background;
         ZT_SURFACE grid;
     } gfx;
-} GAME_HIVE;
+} SGL_GAME_HOST;
 
-GAME_HIVE* gGame;
+SGL_GAME_HOST gGame;
 
 #ifdef __cplusplus
 extern "C" {
@@ -75,7 +69,7 @@ void SGG_Wipe(void);
 void SGG_InitGFX(void);
 void SGG_Init(ZT_INDEX iWidth, ZT_INDEX iHeight);
 void SGG_Loop(void);
-void SGG_Draw(void);
+void SGG_Draw(ZT_COLOR iColor);
 void SGG_CameraBounds(void);
 void SGG_CameraReset(void);
 void SGG_CameraMove(ZT_I iX, ZT_I iY);
